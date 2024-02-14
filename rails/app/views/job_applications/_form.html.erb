@@ -1,0 +1,78 @@
+<%= form_with(model: job_application, class: "contents") do |form| %>
+  <% if job_application.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(job_application.errors.count, "error") %> prohibited this job_application from being saved:</h2>
+
+      <ul>
+        <% job_application.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.label :company_name, "Company Name", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.text_field :company_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :position, "Position Title", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.text_field :position, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :location, "Location", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.text_field :location, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :status, "Status", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.select :status, JobApplication.statuses.keys.map { |status| [status.titleize, status] }, { include_blank: false }, { class: "bg-white border border-gray-300 text-gray-900 text-base rounded-lg block w-full p-2.5" } %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :applied_at, "When did you applied?", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.date_field :applied_at, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :applied_via, "How did you applied?", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.text_field :applied_via, placeholder: "Linkedin/Direct message...", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :priority, "Priority", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.select :priority, JobApplication.priorities.keys.map { |priority| [priority.titleize, priority] }, { include_blank: false }, { class: "bg-white border border-gray-300 text-gray-900 text-base rounded-lg block w-full p-2.5" } %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :contact_name, "Contact Name (Recruiter)", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.text_field :contact_name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :contact_email, "Contact Email (Recruiter)", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.text_field :contact_email, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :avaliation, "Personal Avaliation", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.select :avaliation, JobApplication.avaliations.keys.map { |avaliation| [avaliation.titleize, avaliation] }, { include_blank: true }, { class: "bg-white border border-gray-300 text-gray-900 text-base rounded-lg block w-full p-2.5" } %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :personal_feedback, "Personal Feedback", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.text_area :personal_feedback, rows: 5, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :improvements, "Improvements", class: "block mb-2 text-base font-medium text-gray-900"  %>
+    <%= form.text_area :improvements, rows: 5, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+  </div>
+
+  <div class="inline flex justify-between	">
+    <%= form.submit class: "rounded-lg py-3 px-5 bg-ptpurple text-white inline-block font-medium cursor-pointer" %>
+    <%= link_to "Back", job_applications_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+<% end %>

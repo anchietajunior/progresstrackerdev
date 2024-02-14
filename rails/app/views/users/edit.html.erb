@@ -1,0 +1,16 @@
+<div class="mx-auto md:w-2/3 w-full pb-6">
+  <h1 class="font-bold text-2xl">Edit your account</h1>
+
+  <%= render "form", user: @user %>
+
+  <hr class="mt-4">
+
+  <h1 class="mt-4 font-bold text-2xl mb-4">Current Session</h1>
+  <%= button_to "Sign out", sessions_path, method: :delete, class: "text-white bg-ptpurple hover:bg-pt-orange focus:ring-4 font-medium rounded-lg px-5 py-3 mr-2 focus:outline-none w-36" %>
+
+  <hr class="mt-4">
+
+  <h1 class="mt-4 font-bold text-2xl mb-4">Account</h1>
+  <p class="text-gray-700 text-sm mb-3">Delete my account and all data related to it.</p>
+  <%= button_to "Delete", sessions_path, method: :delete, class: "text-white bg-ptpurple hover:bg-pt-orange focus:ring-4 font-medium rounded-lg px-5 py-3 mr-2 focus:outline-none w-36" %>
+</div>

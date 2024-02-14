@@ -1,0 +1,50 @@
+<div id="<%= dom_id interview %>">
+    <%= link_to job_application_interview_path(interview.job_application_id, interview) do %>
+      <div class="w-full px-3 py-0.5 bg-white border border-gray-200 rounded-lg shadow mt-3 pb-3">
+
+        <p class="font-medium text-gray-700 my-3">
+          <span class="bg-ptpurple text-white text-sm font-medium me-2 px-2.5 py-1.5 rounded">
+            <%= interview.interview_type.upcase %>
+          </span>
+        </p>
+
+        <% if interview.interview_at.present? %>
+          <p class="font-medium text-gray-700 my-3">
+            <strong>When:</strong> <%= interview.interview_at.strftime("%m-%d-%Y") %>
+          </p>
+        <% end %>
+
+        <p class="my-3">
+          <p class="font-medium text-gray-700 my-3">
+            <strong>Details:</strong>
+          </p>
+
+          <p class="text-sm"><%= interview.details %></p>
+        </p>
+
+        <% if interview.interviewers_info.present? %>
+          <p class="my-3">
+            <p class="font-medium text-gray-700 my-3">
+              <strong>Interviewers Info:</strong>
+            </p>
+            <%= interview.interviewers_info %>
+          </p>
+        <% end %>
+
+        <% if interview.url.present? %>
+          <p class="my-3">
+            <p class="font-medium text-gray-700 my-3">
+              <strong>URL/Link:</strong>
+            </p>
+            <%= interview.url %>
+          </p>
+        <% end %>
+      </div>
+    <% end %>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this interview", job_application_interview(interview), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this interview", edit_job_application_interview_path(interview), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

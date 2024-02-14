@@ -1,0 +1,11 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+anchieta:
+  name: Anchieta
+  email: anchieta@ror.com
+  password_digest: password
+
+janedoe:
+  name: Jane Doe
+  email: jane@doe.com
+  password_digest: password

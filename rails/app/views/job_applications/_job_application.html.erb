@@ -1,0 +1,130 @@
+<div id="<%= dom_id job_application %>">
+  <% if action_name == "index" %>
+    <%= link_to job_application do %>
+      <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow">
+        <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">
+          <%= job_application.position %> at <%= job_application.company_name %>
+        </h5>
+
+        <p class="mb-3 font-normal text-gray-700">
+          <span class="bg-gray-500 text-white text-sm font-medium me-2 px-2.5 py-1.5 rounded">
+            <%= job_application.status %>
+          </span>
+          <span class="bg-ptlpurple text-white text-sm font-medium me-2 px-2.5 py-1.5 rounded">
+            <%= job_application.priority %> priority
+          </span>
+        </p>
+
+        <p class="font-medium text-gray-700 mb-3">
+          <strong>Location:</strong> <%= job_application.location %>
+        </p>
+
+        <p class="font-medium text-gray-700">
+          <strong>Applied at:</strong> <%= job_application.applied_at.strftime("%m-%d-%Y") %>
+        </p>
+      </div>
+    <% end %>
+  <% else %>
+    <div class="w-full px-4 py-3">
+      <h5 class="mb-3 text-xl font-bold tracking-tight text-gray-900">
+        <%= job_application.position %> at <%= job_application.company_name %>
+      </h5>
+
+      <p class="mb-4 font-normal text-gray-700">
+        <span class="bg-gray-500 text-white text-sm font-medium me-2 px-2.5 py-1.5 rounded">
+          <%= job_application.status %>
+        </span>
+        <span class="bg-ptpurple text-white text-sm font-medium me-2 px-2.5 py-1.5 rounded">
+          <%= job_application.priority %> priority
+        </span>
+      </p>
+
+      <p class="font-medium text-gray-700 mb-3">
+        <strong>Location:</strong> <%= job_application.location %>
+      </p>
+
+      <p class="font-medium text-gray-700 mb-3">
+        <strong>Applied at:</strong> <%= job_application.applied_at.strftime("%m-%d-%Y") %>
+      </p>
+
+      <p class="font-medium text-gray-700 mb-3">
+        <strong>Applied via:</strong> <%= job_application.applied_via %>
+      </p>
+
+      <hr>
+
+      <p class="mt-1 font-normal text-gray-700">
+        <span class="bg-gray-400 text-white text-xs me-2 px-1.5 py-1 rounded">
+          Contact Info
+        </span>
+      </p>
+
+      <% if job_application.contact_name.present? %>
+        <p class="mt-2 mb-5">
+          <strong class="block font-medium mb-1">Contact name:</strong>
+          <%= job_application.contact_name %>
+        </p>
+      <% end %>
+
+      <% if job_application.contact_email.present? %>
+        <p class="my-5">
+          <strong class="block font-medium mb-1">Contact email:</strong>
+          <%= job_application.contact_email %>
+        </p>
+      <% end %>
+
+      <hr>
+
+      <% if job_application.personal_feedback.present? || job_application.avaliation.present? || job_application.improvements.present? %>
+        <p class="mt-1 font-normal text-gray-700">
+          <span class="bg-gray-400 text-white text-xs me-2 px-1.5 py-1 rounded">
+            Personal check
+          </span>
+        </p>
+
+        <% if job_application.personal_feedback.present? %>
+          <p class="my-5">
+            <strong class="block font-medium mb-1">Personal feedback:</strong>
+            <%= job_application.personal_feedback %>
+          </p>
+        <% end %>
+
+        <% if job_application.avaliation.present? %>
+          <p class="my-5">
+            <strong class="block font-medium mb-1">Avaliation:</strong>
+            <%= job_application.avaliation %>
+          </p>
+        <% end %>
+
+        <% if job_application.improvements.present? %>
+          <p class="my-5">
+            <strong class="block font-medium mb-1">What can i improve on?:</strong>
+            <%= job_application.improvements %>
+          </p>
+        <% end %>
+
+        <hr>
+      <% end %>
+
+      <div class="w-full mt-2">
+        <div class="flex justify-between items-center mb-4">
+          <h5 class="mt-2 text-lg font-bold tracking-tight text-gray-900">
+            Interview Steps
+          </h5>
+
+          <div class="flex direction-row">
+            <%= link_to new_job_application_interview_path(job_application), class: "mt-2 rounded-lg py-2 px-3 bg-ptpurple text-white block font-medium" do %>
+              <%= inline_svg_tag("icons/plus.svg", style: "max-height: 30px; max-width: 30px; color: white") %>
+            <% end %>
+          </div>
+        </div>
+
+      <div id="interviews" class="min-w-full">
+        <%= render @interviews %>
+      </div>
+    </div>
+
+    <hr>
+
+  <% end %>
+</div>
