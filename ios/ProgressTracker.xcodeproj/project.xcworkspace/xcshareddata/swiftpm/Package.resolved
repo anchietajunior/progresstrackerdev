@@ -1,6 +1,15 @@
 {
   "pins" : [
     {
+      "identity" : "strada-ios",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/hotwired/strada-ios/",
+      "state" : {
+        "branch" : "fix-redirect-issue",
+        "revision" : "beec8c36e115a4b945a7e23e5e336ea4c4288e4e"
+      }
+    },
+    {
       "identity" : "turbo-ios",
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/hotwired/turbo-ios",
