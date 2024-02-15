@@ -6,17 +6,15 @@ class MenuComponent: BridgeComponent {
     override class var name: String { "menu" }
     
     override func onReceive(message: Message) {
-        let add = UIAction(title: "Add") { _ in
-            // Do something when tapped.
-            print("Add")
-        }
         let edit = UIAction(title: "Edit") { _ in
-            // Do something when tapped.
-            print("Edit")
+            self.reply(to: "edit")
+        }
+        let delete = UIAction(title: "Delete") { _ in
+            self.reply(to: "delete")
         }
 
         let image = UIImage(systemName: "ellipsis.circle")
-        let menu = UIMenu(children: [add, edit])
+        let menu = UIMenu(children: [edit, delete])
         viewController?.navigationItem.rightBarButtonItem = UIBarButtonItem(image: image, menu: menu)
     }
     
