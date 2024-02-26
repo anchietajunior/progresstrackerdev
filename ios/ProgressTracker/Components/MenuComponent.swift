@@ -13,6 +13,7 @@ class MenuComponent: BridgeComponent {
         }
         
         let delete = UIAction(title: "Delete") { _ in
+            print("CLICKED DELETE")
             self.reply(to: "delete")
         }
 

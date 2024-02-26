@@ -6,12 +6,12 @@
 
     <%= render @interview %>
 
-    <div class="inline flex justify-between mt-4">
-      <%= link_to "Edit", edit_job_application_interview_path(@interview.job_application_id, @interview), "data-bridge--menu-target": "edit", class: " rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="flex flex-row justify-between space-x-2 mt-6">
+      <%= link_to "Edit", edit_job_application_interview_path(@interview.job_application_id, @interview), "data-bridge--menu-target": "edit", class: "flex-1 text-center rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium turbo-native:hidden" %>
 
-      <%= link_to "Delete", job_application_interview_path(@interview.job_application_id, @interview), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "rounded-lg py-3 px-5 bg-gray-500 inline-block font-medium" %>
+      <%= link_to "Delete", job_application_interview_path(@interview.job_application_id, @interview), data: {turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "flex-1 text-center rounded-lg py-3 text-white px-5 bg-gray-500 inline-block font-medium" %>
 
-      <%= link_to "Back", job_application_path(@interview.job_application), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Back", job_application_path(@interview.job_application), class: "flex-1 ml-2 text-center rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium turbo-native:hidden" %>
     </div>
   </div>
 </div>

@@ -12,7 +12,7 @@ export default class extends BridgeComponent {
     })
 
     this.send("delete", {}, () => {
-      this.editTarget.click()
+      this.deleteTarget.click()
     })
   }
 }

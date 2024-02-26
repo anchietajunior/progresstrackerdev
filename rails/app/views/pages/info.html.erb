@@ -9,7 +9,9 @@
     <% @job_applications.each do |job_application| %>
       <li class="flex items-center">
         <span class="mr-2">👜</span>
-        <%= job_application.position %> at <strong class="ml-2"><%= job_application.company_name %></strong>
+        <div>
+          <%= job_application.position %> at <strong><%= job_application.company_name %></strong>
+        </div>
       </li>
     <% end %>
   </ul>
@@ -20,7 +22,9 @@
     <% @interviews.each do |interview| %>
       <li class="flex items-center">
         <span class="mr-2">📅</span>
-        <%= interview.job_application.company_name %> - <%= interview.interview_type %>
+        <div>
+          <%= interview.job_application.company_name %> - <%= interview.interview_type %>
+        </div>
       </li>
     <% end %>
   </ul>
