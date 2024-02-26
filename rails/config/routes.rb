@@ -13,5 +13,5 @@ Rails.application.routes.draw do
     get :ios, on: :collection
   end
 
-  root 'pages#info'
+  root 'pages#home'
 end

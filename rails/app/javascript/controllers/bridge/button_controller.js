@@ -6,15 +6,11 @@ export default class extends BridgeComponent {
   connect() {
     super.connect()
     this.notifyBridgeAndCreateButton()
-
-    // this.send("connect", {}, () => {
-    //   this.addTarget.click()
-    // })
   }
 
   notifyBridgeAndCreateButton() {
     const element = this.bridgeElement
-    const image = element.bridgeAttribute("ios-image")
+    const image = element.bridgeAttribute("image")
     const side = element.bridgeAttribute("side") || "right"
     this.send("connect", { title: element.title, image, side }, () => {
       this.element.click()

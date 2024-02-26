@@ -16,6 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
         guard let windowScene = scene as? UIWindowScene else { return }
+        
+        UINavigationBar.configureWithOpaqueBackground()
 
         self.window = UIWindow(windowScene: windowScene)
         self.window?.makeKeyAndVisible()
@@ -38,9 +40,19 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     }
 }
 
+// Allow Turbo to receive a custom WebViewController
 extension SceneDelegate: TurboNavigationDelegate {
     func handle(proposal: VisitProposal) -> ProposalResult {
         let webViewController = WebViewController(url: proposal.url)
         return .acceptCustom(webViewController)
+    }
+}
+
+// Add opaque configuration to UINavigationBar
+extension UINavigationBar {
+    static func configureWithOpaqueBackground() {
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        appearance().scrollEdgeAppearance = navigationBarAppearance
     }
 }

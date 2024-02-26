@@ -3,4 +3,9 @@ class PagesController < ApplicationController
   before_action :redirect_if_authenticated, only: %i[home]
 
   def home; end
+
+  def info
+    @job_applications = JobApplication.order(created_at: :desc).limit(3)
+    @interviews = Interview.order(created_at: :desc).limit(3)
+  end
 end

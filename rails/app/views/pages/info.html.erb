@@ -1,23 +1,33 @@
-<div class="mx-auto md:w-2/3 w-full pt-4">
-  <h1 class="font-bold text-2xl mb-4">Your info</h1>
+<% content_for(:title, "Recent Activities")%>
 
-    <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">
-      You have <%= current_user.job_applications.size %> registered job applications.
-    </h5>
+<div class="mx-auto w-full pt-4">
+  <h1 class="font-bold text-2xl mb-4 turbo-native:hidden">Recent Activities</h1>
 
-    <div class="mb-6">
-      <p class="font-normal text-gray-700">
-        <span class="bg-gray-500 text-white text-sm font-medium me-2 px-2.5 py-1.5 rounded">
-          3 in progress
-        </span>
-        <span class="bg-ptlpurple text-white text-sm font-medium me-2 px-2.5 py-1.5 rounded">
-          10 finished
-        </span>
-      </p>
-    </div>
+  <h2 class="font-bold text-xl mb-4">Job Applications</h2>
 
-  <%= link_to "Job Applications", job_applications_path, class: "rounded-lg py-3 px-5 bg-ptpurple text-white font-medium mt-6" %>
+  <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside pl-4 mb-6">
+    <% @job_applications.each do |job_application| %>
+      <li class="flex items-center">
+        <span class="mr-2">👜</span>
+        <%= job_application.position %> at <strong class="ml-2"><%= job_application.company_name %></strong>
+      </li>
+    <% end %>
+  </ul>
+
+  <h2 class="font-bold text-xl mb-4">Interviews</h2>
+
+  <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside pl-4 mb-8">
+    <% @interviews.each do |interview| %>
+      <li class="flex items-center">
+        <span class="mr-2">📅</span>
+        <%= interview.job_application.company_name %> - <%= interview.interview_type %>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Go to Job Applications", job_applications_path, class: "rounded-lg py-3 px-5 bg-ptpurple text-white font-medium block text-center mt-4 w-full" %>
 </div>
 
-<%= link_to "Edit", edit_user_path(current_user), "data-controller": "bridge--button", "data-bridge-ios-image": "person.circle", "data-bridge-side": "left", class: " rounded-lg py-1.5 px-2 bg-ptpurple text-white block font-medium turbo-native:hidden" %>
+<%= link_to "Edit User", edit_user_path(current_user), "data-controller": "bridge--button", "data-bridge-image": "person.circle", class: "invisible" %>
+
 
