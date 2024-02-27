@@ -63,13 +63,33 @@ extension UINavigationBar {
 
 extension SceneDelegate: WKUIDelegate {
     func webView(_ webView: WKWebView, runJavaScriptConfirmPanelWithMessage message: String, initiatedByFrame frame: WKFrameInfo, completionHandler: @escaping (Bool) -> Void) {
-        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "Confirm", style: .destructive) { _ in
-            completionHandler(true)
-        })
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
-            completionHandler(false)
-        })
-        navigationController.present(alert, animated: true)
+            let semaphore = DispatchSemaphore(value: 1) // Cria um semáforo com valor 1
+
+            let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Confirm", style: .destructive) { _ in
+                semaphore.wait() // Tenta diminuir o semáforo, bloqueando se o valor for 0
+                completionHandler(true)
+                semaphore.signal() // Aumenta o semáforo, permitindo que outro thread continue
+            })
+            alert.addAction(UIAlertAction(title: "Cancel", style: .cancel) { _ in
+                semaphore.wait() // Mesmo que acima
+                completionHandler(false)
+                semaphore.signal() // Mesmo que acima
+            })
+
+            if let currentViewController = self.getCurrentViewController() {
+                currentViewController.present(alert, animated: true, completion: nil)
+            }
+        }
+
+    func getCurrentViewController(_ viewController: UIViewController? = UIApplication.shared.keyWindow?.rootViewController) -> UIViewController? {
+        if let navigationController = viewController as? UINavigationController {
+            return getCurrentViewController(navigationController.visibleViewController)
+        } else if let tabBarController = viewController as? UITabBarController, let selected = tabBarController.selectedViewController {
+            return getCurrentViewController(selected)
+        } else if let presented = viewController?.presentedViewController {
+            return getCurrentViewController(presented)
+        }
+        return viewController
     }
 }
