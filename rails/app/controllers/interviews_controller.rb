@@ -1,6 +1,6 @@
 class InterviewsController < ApplicationController
   before_action :set_job_application
-  before_action :set_interview, only: %i[ show edit update destroy ]
+  before_action :set_interview, only: %i[show edit update destroy]
 
   def show; end
 
@@ -15,7 +15,11 @@ class InterviewsController < ApplicationController
 
     respond_to do |format|
       if @interview.save
-        format.html { redirect_to job_application_interview_path(@job_application.id, @interview), notice: "Interview was successfully created." }
+        @job_application.interviews.reload
+
+        format.html do
+          redirect_to job_application_path(@job_application), notice: 'Interview was successfully created.'
+        end
         format.json { render :show, status: :created, location: @interview }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -27,7 +31,9 @@ class InterviewsController < ApplicationController
   def update
     respond_to do |format|
       if @interview.update(interview_params)
-        format.html { redirect_to job_application_interview_url(@interview), notice: "Interview was successfully updated." }
+        format.html do
+          redirect_to job_application_url(@job_application), notice: 'Interview was successfully updated.'
+        end
         format.json { render :show, status: :ok, location: @interview }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -40,7 +46,7 @@ class InterviewsController < ApplicationController
     @interview.destroy!
 
     respond_to do |format|
-      format.html { redirect_to job_application_url(@job_application), notice: "Interview was successfully destroyed." }
+      format.html { redirect_to job_application_url(@job_application), notice: 'Interview was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

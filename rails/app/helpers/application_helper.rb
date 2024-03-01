@@ -8,4 +8,8 @@ module ApplicationHelper
 
     content_for(:title) || "Progress Tracker"
   end
+
+  def humanized_text(text)
+    text.humanize(capitalize: true)
+  end
 end

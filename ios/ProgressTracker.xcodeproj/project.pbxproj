@@ -13,16 +13,12 @@
 		E40E65232B7C2BB700651ABE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40E65212B7C2BB700651ABE /* Main.storyboard */; };
 		E40E65252B7C2BB800651ABE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E40E65242B7C2BB800651ABE /* Assets.xcassets */; };
 		E40E65282B7C2BB800651ABE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E40E65262B7C2BB800651ABE /* LaunchScreen.storyboard */; };
-		E40E65332B7C2BB800651ABE /* ProgressTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E65322B7C2BB800651ABE /* ProgressTrackerTests.swift */; };
-		E40E653D2B7C2BB800651ABE /* ProgressTrackerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E653C2B7C2BB800651ABE /* ProgressTrackerUITests.swift */; };
-		E40E653F2B7C2BB800651ABE /* ProgressTrackerUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E40E653E2B7C2BB800651ABE /* ProgressTrackerUITestsLaunchTests.swift */; };
 		E4C2786F2B7C2C63002A5D89 /* Turbo in Frameworks */ = {isa = PBXBuildFile; productRef = E4C2786E2B7C2C63002A5D89 /* Turbo */; };
 		E4C278712B7C2C81002A5D89 /* EndPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C278702B7C2C81002A5D89 /* EndPoint.swift */; };
 		E4C278742B7C379C002A5D89 /* TurboNavigator in Frameworks */ = {isa = PBXBuildFile; productRef = E4C278732B7C379C002A5D89 /* TurboNavigator */; };
 		E4C278772B7D3D93002A5D89 /* Strada in Frameworks */ = {isa = PBXBuildFile; productRef = E4C278762B7D3D93002A5D89 /* Strada */; };
 		E4C278792B7D3DB8002A5D89 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C278782B7D3DB8002A5D89 /* WebViewController.swift */; };
 		E4C2787B2B7D3FDB002A5D89 /* BridgeComponent+App.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C2787A2B7D3FDB002A5D89 /* BridgeComponent+App.swift */; };
-		E4C2787D2B7D4373002A5D89 /* LogComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C2787C2B7D4373002A5D89 /* LogComponent.swift */; };
 		E4C2787F2B7D4786002A5D89 /* ButtonComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4C2787E2B7D4786002A5D89 /* ButtonComponent.swift */; };
 		E4CB831E2B7DB9FD00482F90 /* MenuComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4CB831D2B7DB9FD00482F90 /* MenuComponent.swift */; };
 /* End PBXBuildFile section */
@@ -54,14 +50,10 @@
 		E40E65272B7C2BB800651ABE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E40E65292B7C2BB800651ABE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E40E652E2B7C2BB800651ABE /* ProgressTrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProgressTrackerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E40E65322B7C2BB800651ABE /* ProgressTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTrackerTests.swift; sourceTree = "<group>"; };
 		E40E65382B7C2BB800651ABE /* ProgressTrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProgressTrackerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		E40E653C2B7C2BB800651ABE /* ProgressTrackerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTrackerUITests.swift; sourceTree = "<group>"; };
-		E40E653E2B7C2BB800651ABE /* ProgressTrackerUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressTrackerUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		E4C278702B7C2C81002A5D89 /* EndPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EndPoint.swift; sourceTree = "<group>"; };
 		E4C278782B7D3DB8002A5D89 /* WebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		E4C2787A2B7D3FDB002A5D89 /* BridgeComponent+App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BridgeComponent+App.swift"; sourceTree = "<group>"; };
-		E4C2787C2B7D4373002A5D89 /* LogComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogComponent.swift; sourceTree = "<group>"; };
 		E4C2787E2B7D4786002A5D89 /* ButtonComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonComponent.swift; sourceTree = "<group>"; };
 		E4CB831D2B7DB9FD00482F90 /* MenuComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuComponent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,8 +90,6 @@
 			isa = PBXGroup;
 			children = (
 				E40E651A2B7C2BB700651ABE /* ProgressTracker */,
-				E40E65312B7C2BB800651ABE /* ProgressTrackerTests */,
-				E40E653B2B7C2BB800651ABE /* ProgressTrackerUITests */,
 				E40E65192B7C2BB700651ABE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -131,27 +121,9 @@
 			path = ProgressTracker;
 			sourceTree = "<group>";
 		};
-		E40E65312B7C2BB800651ABE /* ProgressTrackerTests */ = {
-			isa = PBXGroup;
-			children = (
-				E40E65322B7C2BB800651ABE /* ProgressTrackerTests.swift */,
-			);
-			path = ProgressTrackerTests;
-			sourceTree = "<group>";
-		};
-		E40E653B2B7C2BB800651ABE /* ProgressTrackerUITests */ = {
-			isa = PBXGroup;
-			children = (
-				E40E653C2B7C2BB800651ABE /* ProgressTrackerUITests.swift */,
-				E40E653E2B7C2BB800651ABE /* ProgressTrackerUITestsLaunchTests.swift */,
-			);
-			path = ProgressTrackerUITests;
-			sourceTree = "<group>";
-		};
 		E4CB831C2B7DB8A500482F90 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E4C2787C2B7D4373002A5D89 /* LogComponent.swift */,
 				E4C2787E2B7D4786002A5D89 /* ButtonComponent.swift */,
 				E4C2787A2B7D3FDB002A5D89 /* BridgeComponent+App.swift */,
 				E4CB831D2B7DB9FD00482F90 /* MenuComponent.swift */,
@@ -301,7 +273,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E4C2787B2B7D3FDB002A5D89 /* BridgeComponent+App.swift in Sources */,
-				E4C2787D2B7D4373002A5D89 /* LogComponent.swift in Sources */,
 				E40E65202B7C2BB700651ABE /* ViewController.swift in Sources */,
 				E4CB831E2B7DB9FD00482F90 /* MenuComponent.swift in Sources */,
 				E40E651C2B7C2BB700651ABE /* AppDelegate.swift in Sources */,
@@ -316,7 +287,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E40E65332B7C2BB800651ABE /* ProgressTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -324,8 +294,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E40E653F2B7C2BB800651ABE /* ProgressTrackerUITestsLaunchTests.swift in Sources */,
-				E40E653D2B7C2BB800651ABE /* ProgressTrackerUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

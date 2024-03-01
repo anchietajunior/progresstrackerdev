@@ -1,7 +1,7 @@
 <div id="<%= dom_id job_application %>">
   <% if action_name == "index" %>
     <%= link_to job_application do %>
-      <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow">
+      <div class="w-full p-6 bg-white border border-gray-200 rounded-lg shadow mb-4">
         <h5 class="mb-2 text-lg font-bold tracking-tight text-gray-900">
           <%= job_application.position %> at <%= job_application.company_name %>
         </h5>
@@ -53,11 +53,13 @@
 
       <hr>
 
-      <p class="mt-1 font-normal text-gray-700">
-        <span class="bg-gray-400 text-white text-xs me-2 px-1.5 py-1 rounded">
-          Contact Info
-        </span>
-      </p>
+      <% if job_application.contact_name.present? || job_application.contact_email.present? %>
+        <p class="mt-1 font-normal text-gray-700">
+          <span class="bg-gray-400 text-white text-xs me-2 px-1.5 py-1 rounded">
+            Contact Info
+          </span>
+        </p>
+      <% end %>
 
       <% if job_application.contact_name.present? %>
         <p class="mt-2 mb-5">

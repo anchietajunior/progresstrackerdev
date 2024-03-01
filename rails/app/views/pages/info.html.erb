@@ -3,7 +3,7 @@
 <div class="mx-auto w-full pt-4">
   <h1 class="font-bold text-2xl mb-4 turbo-native:hidden">Recent Activities</h1>
 
-  <h2 class="font-bold text-xl mb-4">Job Applications</h2>
+  <h2 class="font-bold text-xl mb-4">Last Job Applications</h2>
 
   <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside pl-4 mb-6">
     <% @job_applications.each do |job_application| %>
@@ -16,14 +16,14 @@
     <% end %>
   </ul>
 
-  <h2 class="font-bold text-xl mb-4">Interviews</h2>
+  <h2 class="font-bold text-xl mb-4">Next Interviews</h2>
 
   <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside pl-4 mb-8">
     <% @interviews.each do |interview| %>
       <li class="flex items-center">
         <span class="mr-2">📅</span>
         <div>
-          <%= interview.job_application.company_name %> - <%= interview.interview_type %>
+          <%= interview.job_application.company_name %> - <%= humanized_text(interview.interview_type) %>
         </div>
       </li>
     <% end %>

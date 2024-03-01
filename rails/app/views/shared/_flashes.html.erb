@@ -1,14 +1,14 @@
-<% if alert %>
-  <div class="bg-orange-100 border-l-4 border-orange-500 text-orange-700 p-4 w-full mb-4" data-turbo-temporary role="alert">
-    <p class="font-bold">Hey!</p>
-    <p><%= alert || notice %></p>
-  </div>
-<% end %>
+<% if flash.any? %>
+  <% key, message = flash.to_a.last %>
+  <% bg_color, border_color, text_color = case key
+  when 'alert' then ['bg-orange-100', 'border-orange-500', 'text-white']
+  when 'notice' then ['bg-ptlpurple', 'border-blue-500', 'text-white']
+  else ['bg-gray-100', 'border-gray-500', 'text-gray-700']
+  end %>
 
-<% if notice %>
-  <div class="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 w-full mb-4" data-turbo-temporary role="alert">
+  <div data-controller="bridge--flash-messages" data-bridge-message="<%= message %>" class="<%= "#{bg_color} #{border_color} #{text_color} p-4 w-full mb-4" %>" id="flash_messages" role="<%= key == 'alert' ? 'alert' : 'status' %>">
     <p class="font-bold">Hey!</p>
-    <p><%= alert || notice %></p>
+    <p><%= message %></p>
   </div>
 <% end %>
 
