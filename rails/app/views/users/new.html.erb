@@ -1,7 +1,9 @@
-<div class="mx-auto md:w-2/3 w-full">
+<div class="mx-auto md:w-2/3 w-full" data-controller="bridge--buton">
   <h1 class="font-bold text-4xl">New user</h1>
 
   <%= render "form", user: @user %>
 
-  <%= link_to "Or Login", new_session_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-500 text-white inline-block font-medium" %>
+  <%= link_to "Or Login", new_session_path,
+    "data-bridge--buton-target": "login", "data-brige--button-title": "Login",
+    class: "ml-2 rounded-lg py-3 px-5 bg-gray-500 text-white inline-block font-medium" %>
 </div>

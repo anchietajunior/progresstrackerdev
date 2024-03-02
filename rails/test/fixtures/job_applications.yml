@@ -4,7 +4,8 @@ tropicalrb:
   user: anchieta
   company_name: tropicalrb
   position: Senior Engineer
-  status: 1
+  status: "applied"
+  location: "Remote"
   applied_at: 2024-02-10
   applied_via: Linkedin
   contact_name: Jhon Krazinsky
@@ -15,7 +16,8 @@ rorclub:
   user: anchieta
   company_name: Ruby on Rails Club
   position: Ruby Developer
-  status: 1
+  status: "applied"
+  location: "Remote"
   applied_at: 2024-02-10
   applied_via: Site
   contact_name: Jackson

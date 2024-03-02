@@ -9,6 +9,8 @@ Rails.application.routes.draw do
   resources :sessions, only: %i[new create] do
     delete :destroy, on: :collection
   end
+  post 'sessions/create', to: 'sessions#create', as: 'login'
+
   resources :configurations, only: [] do
     get :ios, on: :collection
   end

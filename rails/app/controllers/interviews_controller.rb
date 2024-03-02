@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class InterviewsController < ApplicationController
   before_action :set_job_application
   before_action :set_interview, only: %i[show edit update destroy]
@@ -18,12 +20,10 @@ class InterviewsController < ApplicationController
         @job_application.interviews.reload
 
         format.html do
-          redirect_to job_application_path(@job_application), notice: 'Interview was successfully created.'
+          redirect_to job_application_interview_path(@job_application, @interview), notice: 'Interview was successfully created.'
         end
-        format.json { render :show, status: :created, location: @interview }
       else
         format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @interview.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -32,12 +32,10 @@ class InterviewsController < ApplicationController
     respond_to do |format|
       if @interview.update(interview_params)
         format.html do
-          redirect_to job_application_url(@job_application), notice: 'Interview was successfully updated.'
+          redirect_to job_application_interview_path(@job_application, @interview), notice: 'Interview was successfully updated.'
         end
-        format.json { render :show, status: :ok, location: @interview }
       else
         format.html { render :edit, status: :unprocessable_entity }
-        format.json { render json: @interview.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -47,7 +45,6 @@ class InterviewsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to job_application_url(@job_application), notice: 'Interview was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
