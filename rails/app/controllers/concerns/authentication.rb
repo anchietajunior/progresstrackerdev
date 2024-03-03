@@ -10,20 +10,18 @@ module Authentication
     cookies.encrypted.permanent[:user_id] = user.id
   end
 
-  def sign_out(user)
+  def sign_out
     Current.user = nil
     reset_session
     cookies.delete(:user_id)
   end
 
   def authenticate_user!
-    if current_user.blank?
-      redirect_to get_started_path
-    end
+    redirect_to get_started_path if current_user.blank?
   end
 
   def redirect_if_authenticated
-    redirect_to root_path if user_signed_in?
+    redirect_to info_path if user_signed_in?
   end
 
   private
@@ -40,4 +38,3 @@ module Authentication
     User.find_by(id: cookies.encrypted[:user_id])
   end
 end
-

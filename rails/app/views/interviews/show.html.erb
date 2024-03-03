@@ -1,15 +1,15 @@
-<div class="w-full pb-5">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
+<% content_for(:title, humanized_text(@interview.interview_type)) %>
 
+<div class="w-full pb-5">
+  <div class="mx-auto" data-controller="bridge--menu">
     <%= render @interview %>
 
-    <div class="inline flex justify-between mt-4">
-      <%= link_to "Edit", edit_job_application_interview_path(@interview.job_application_id, @interview), class: " rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-      <%= button_to "Destroy", job_application_interview_path(@interview.job_application_id, @interview), method: :delete, form: { class: "ml-2 inline-flex items-center py-3 px-5 font-medium text-center text-white bg-gray-500 rounded-lg focus:ring-4 focus:outline-none" }, data: { turbo_confirm: "Are you sure?" } %>
-      <%= link_to "Back", job_application_path(@interview.job_application), class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <div class="flex flex-row justify-between space-x-2 mt-6">
+      <%= link_to "Edit", edit_job_application_interview_path(@interview.job_application_id, @interview), "data-bridge--menu-target": "edit", class: "flex-1 text-center rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium turbo-native:hidden" %>
+
+      <%= link_to "Delete", job_application_interview_path(@interview.job_application_id, @interview), data: { turbo_method: :delete, "bridge--menu-target": "delete", turbo_confirm: "Are you sure?" }, class: "flex-1 text-center rounded-lg py-3 text-white px-5 bg-gray-500 inline-block font-medium turbo-native:hidden" %>
+
+      <%= link_to "Back", job_application_path(@interview.job_application), class: "flex-1 ml-2 text-center rounded-lg py-3 px-5 bg-gray-200 inline-block font-medium turbo-native:hidden" %>
     </div>
   </div>
 </div>

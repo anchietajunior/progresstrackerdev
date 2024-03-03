@@ -2,7 +2,8 @@ require "test_helper"
 
 class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
   setup do
-    @job_application = job_applications(:one)
+    log_in(users(:anchieta))
+    @job_application = job_applications(:tropicalrb)
   end
 
   test "should get index" do
@@ -17,7 +18,19 @@ class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create job_application" do
     assert_difference("JobApplication.count") do
-      post job_applications_url, params: { job_application: { applied_at: @job_application.applied_at, applied_via: @job_application.applied_via, company_name: "Progress Tracker", contact_email: @job_application.contact_email, contact_name: @job_application.contact_name, position: @job_application.position, priority: @job_application.priority, status: @job_application.status, user_id: @job_application.user_id } }
+      post job_applications_url, params: {
+        job_application: {
+          applied_at: @job_application.applied_at,
+          applied_via: @job_application.applied_via,
+          company_name: "Progress Tracker",
+          contact_email: @job_application.contact_email,
+          contact_name: @job_application.contact_name,
+          position: @job_application.position,
+          location: @job_application.location,
+          priority: @job_application.priority,
+          status: @job_application.status
+        }
+      }
     end
 
     assert_redirected_to job_application_url(JobApplication.last)
@@ -34,7 +47,7 @@ class JobApplicationsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update job_application" do
-    patch job_application_url(@job_application), params: { job_application: { applied_at: @job_application.applied_at, applied_via: @job_application.applied_via, company_name: @job_application.company_name, contact_email: @job_application.contact_email, contact_name: @job_application.contact_name, position: @job_application.position, priority: @job_application.priority, status: @job_application.status, user_id: @job_application.user_id } }
+    patch job_application_url(@job_application), params: { job_application: { applied_at: @job_application.applied_at, applied_via: @job_application.applied_via, company_name: @job_application.company_name, contact_email: @job_application.contact_email, contact_name: @job_application.contact_name, position: @job_application.position, priority: @job_application.priority, status: @job_application.status } }
     assert_redirected_to job_application_url(@job_application)
   end
 

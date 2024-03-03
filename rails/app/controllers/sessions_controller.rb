@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
   private
 
   def authentication_params
-    {email: params[:email], password: params[:password]}
+    { email: params[:email], password: params[:password] }
   end
 end
 

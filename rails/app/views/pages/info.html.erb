@@ -1,0 +1,37 @@
+<% content_for(:title, "Recent Activities")%>
+
+<div class="mx-auto w-full pt-4">
+  <h1 class="font-bold text-2xl mb-4 turbo-native:hidden">Recent Activities</h1>
+
+  <h2 class="font-bold text-xl mb-4">Last Job Applications</h2>
+
+  <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside pl-4 mb-6">
+    <% @job_applications.each do |job_application| %>
+      <li class="flex items-center">
+        <span class="mr-2">👜</span>
+        <div>
+          <%= job_application.position %> at <strong><%= job_application.company_name %></strong>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <h2 class="font-bold text-xl mb-4">Next Interviews</h2>
+
+  <ul class="max-w-md space-y-1 text-gray-700 list-disc list-inside pl-4 mb-8">
+    <% @interviews.each do |interview| %>
+      <li class="flex items-center">
+        <span class="mr-2">📅</span>
+        <div>
+          <%= interview.job_application.company_name %> - <%= humanized_text(interview.interview_type) %>
+        </div>
+      </li>
+    <% end %>
+  </ul>
+
+  <%= link_to "Go to Job Applications", job_applications_path, class: "rounded-lg py-3 px-5 bg-ptpurple text-white font-medium block text-center mt-4 w-full" %>
+</div>
+
+<%= link_to "Edit User", edit_user_path(current_user), "data-controller": "bridge--button", "data-bridge-image": "person.circle", class: "invisible" %>
+
+
